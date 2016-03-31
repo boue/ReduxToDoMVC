@@ -11,7 +11,7 @@ export default class TodoList extends Component {
                       text={item.get('text')} />
           )}
         </ul>
-      <section />
+      </section >
     );
   }
 }

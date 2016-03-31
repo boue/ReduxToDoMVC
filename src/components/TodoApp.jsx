@@ -9,5 +9,6 @@ export default class TodoApp extends Component {
           <TodoList todos={this.props.todos} />
         </section>
       </div>
-    );
-  }
+    )
+  };
+}
