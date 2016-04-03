@@ -27,5 +27,17 @@ describe('ToDo Item', () => {
 
     expect(todo[0].classList.contains('completed')).to.equal('true');
   });
+
+  it('should look different when editing', () => {
+    const text = 'React';
+    const component = renderIntoDocument(
+      <TodoItem text={text} isEditing={true}/>
+    );
+    const todo = scryRenderedDOMComponentsWithTag(component, 'li');
+
+    expect(todo[0].classList.contains('editing')).to.equal(true);
+  });
+
+  it('should be checked if the item is completed')
 });
 

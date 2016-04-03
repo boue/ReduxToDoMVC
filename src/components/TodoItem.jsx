@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+// We need to import the classNames object
 import classNames from 'classnames';
+
 import TextInput from './TextInput';
 
-export default class TodoItem extends Component {
+export default class TodoItem extends React.Component {
   render() {
+    var itemClass = classNames({
+      'todo': true,
+      'completed': this.props.isCompleted,
+      'editing': this.props.isEditing
+    });
     return (
       <li className="todo">
         <div className="view">
