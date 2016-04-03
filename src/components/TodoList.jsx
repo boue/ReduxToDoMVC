@@ -11,6 +11,9 @@ export default class TodoList extends Component {
     }
     return [];
   }
+  isCompleted(item){
+    return item.get('status') === 'completed';
+  }
   render(){
     return(
       <section className="main">

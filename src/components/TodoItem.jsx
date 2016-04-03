@@ -14,7 +14,7 @@ export default class TodoItem extends React.Component {
     return (
       <li className="todo">
         <div className="view">
-          <input type="checkbox" className="toggle"/>
+          <input type="checkbox" className="toggle" defaultChecked={this.props.isCompleted} />
           <label htmlFor="todo">
             {this.props.text}
           </label>
