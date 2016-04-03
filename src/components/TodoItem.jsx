@@ -6,10 +6,9 @@ import TextInput from './TextInput';
 
 export default class TodoItem extends React.Component {
   render() {
-    var itemClass = classNames({
-      'todo': true,
-      'completed': this.props.isCompleted,
-      'editing': this.props.isEditing
+    let itemClass = classNames('todo', {
+      'completed' : this.props.isCompleted,
+      'editing' : this.props.isEditing
     });
     return (
       <li className={itemClass}>

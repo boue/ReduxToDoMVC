@@ -26,7 +26,7 @@ describe('ToDo Item', () => {
     );
     const todo = scryRenderedDOMComponentsWithTag(component, 'li');
 
-    expect(todo[0].classList.contains('completed')).to.equal('true');
+    expect(todo[0].classList.contains('completed')).to.equal(true);
   });
 
   it('should look different when editing', () => {
@@ -48,7 +48,7 @@ describe('ToDo Item', () => {
     );
     const input = scryRenderedDOMComponentsWithTag(component, 'input');
     expect(input[0].checked).to.equal(true);
-    expect(input[0].checked).to.equal(false);
+    expect(input[1].checked).to.equal(false);
   });
 
   it('invokes callback when the delete button is clicked', () => {
@@ -64,5 +64,10 @@ describe('ToDo Item', () => {
 
     expect(deleted).to.equal(true);
   });
+
+  it('invokes callback when checkbox is clicked', () => {
+    const text = 'React';
+    var is Checked = false;
+  })
 });
 
