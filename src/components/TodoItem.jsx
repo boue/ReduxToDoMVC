@@ -12,13 +12,14 @@ export default class TodoItem extends React.Component {
       'editing': this.props.isEditing
     });
     return (
-      <li className="todo">
+      <li className={itemClass}>
         <div className="view">
           <input type="checkbox" className="toggle" defaultChecked={this.props.isCompleted} />
           <label htmlFor="todo">
             {this.props.text}
           </label>
-          <button className="destroy"></button>
+          <button className="destroy"
+                  onClick={() => this.props.deleteItem(this.props.id)}></button>
         </div>
         <TextInput />
       </li>
