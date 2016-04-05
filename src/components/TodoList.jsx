@@ -20,7 +20,13 @@ export default class TodoList extends Component {
         <ul className="todo-list">
           {this.getItems().map(item =>
             <TodoItem key={item.get('text')}
-                      text={item.get('text')} />
+                      text={item.get('text')}
+                      isCompleted={this.isCompleted(item)}
+                      isEditing={item.get('editing')}
+                      // We pass down the callback functions
+                      toggleComplete={this.props.toggleComplete}
+                      deleteItem={this.props.deleteItem}
+                      editItem={this.props.editItem}/>
           )}
         </ul>
       </section >
