@@ -1,4 +1,4 @@
-
+import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import TodoTools from '../../src/components/TodoTools';
 import {expect} from 'chai';
