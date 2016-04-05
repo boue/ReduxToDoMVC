@@ -40,9 +40,9 @@ export default React.createClass({
             </a>
           </li>
         </ul>
-        <button className="clear-completed">
-                onClick={this.props.clearCompleted}
-        Clear Completed
+        <button className="clear-completed"
+                onClick={this.props.clearCompleted}>
+                Clear completed
         </button>
       </footer>
     );
