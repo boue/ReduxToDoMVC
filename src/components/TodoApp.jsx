@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import TodoList from './Todolist';
 import TodoHeader from './TodoHeader';
 import TodoTools from './TodoTools';
 import Footer from './Footer'
-
-export default class TodoApp extends Component {
-  getNbActiveItems: function() {
+ 
+export class TodoApp extends Component {
+  getNbActiveItems() {
     if(this.props.todos) {
       const activeItems = this.props.todos.filter(
         (item) => item.get('status') === 'active'
@@ -13,10 +14,9 @@ export default class TodoApp extends Component {
       return activeItems.size;
     }
     return 0;
-  },
-  render(){
-    return (
-      <div>
+  }
+  render() {
+      return <div>
         <section className="todoapp">
           <TodoHeader />
           <TodoList todos={this.props.todos} filter={this.props.filter} />
@@ -25,6 +25,13 @@ export default class TodoApp extends Component {
         </section>
         <Footer />
       </div>
-    )
+    }
   };
-}
+  function mapStateToProps(state){
+    return {
+      todos: state.get('todos'),
+      filter: state.get('filter')
+    };
+  }
+
+  export const TodoAppContainer = connect(mapStateToProps)(TodoApp);
