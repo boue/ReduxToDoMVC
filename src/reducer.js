@@ -1,5 +1,6 @@
 import {Map} from 'immutable';
 
+//re-used thru-out code
 function findItemIndex(state, itemId){
   return state.get('todos').findIndex(
     (item) => item.get('id') === itemId
@@ -25,6 +26,34 @@ function toggleComplete(state, itemId){
 
 function changeFilter(state, filter) {
   return state.set('filter', filter);
+}
+
+function editItem(state, itemId){
+  const itemIndex = findItemIndex(state, itemId);
+  const updatedItem = state.get('todos')
+    .get(itemIndex)
+    .set('editing', true);
+
+  return state.update('todos', todos => todos.set(itemIndex, updatedItem));
+}
+
+function cancelEditing(state, itemId){
+  const itemIndex = findItemIndex(state, itemId);
+  const updatedItem = state.get('todos')
+    .get(itemIndex)
+    .set('editing', false);
+
+  return state.update('todos', todos => todos.set(itemIndex, updatedItem));
+}
+
+function doneEditing(state, itemId, newText){
+  const itemIndex = findItemIndex(state, itemId);
+  const updatedItem = state.get('todos')
+    .get(itemIndex)
+    .set('editing', false)
+    .set('text', newText);
+
+  return state.update('todos', todos => todos.set(itemIndex, updatedItem));
 }
 
 export default function(state = Map(), action){
