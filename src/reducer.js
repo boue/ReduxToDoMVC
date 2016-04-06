@@ -1,14 +1,18 @@
 import {Map} from 'immutable';
 
+function findItemIndex(state, itemId){
+  return state.get('todos').findIndex(
+    (item) => item.get('id') === itemId
+  );
+}
+
 function setState(state, newState){
   return state.merge(newState);
 }
 
 function toggleComplete(state, itemId){
   //we find the index associated with the itemId
-  const itemIndex = state.get('todos').findIndex(
-    (item) => item.get('id') === itemId 
-  );
+  const itemIndex = findItemIndex(state, itemId);
 
   //We update the todo at this index
   const updatedItem = state.get('todos')
